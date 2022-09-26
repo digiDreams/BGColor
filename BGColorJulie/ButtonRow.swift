@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ButtonRow: View {
     
-    @Binding var displayBckColor: Color // = Color.orange // = .yellow @Binding
-    var newBckColor: Color //  @Binding
+    @Binding var displayBckColor: Color 
+    var newBckColor: Color
     var buttonBackgroundColor: Color
     var buttonColorName: String
     
@@ -23,7 +23,7 @@ struct ButtonRow: View {
             displayBckColor
                 .ignoresSafeArea()
             Button {
-                displayBckColor = newBckColor // = self.displayBckColor //.purple
+                displayBckColor = newBckColor
             } label: {
                 HStack {
                     Image(systemName: "eyedropper")
