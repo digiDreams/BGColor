@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct ButtonsView: View {
-    @State private var colorDisp: displayBckColor 
+    @State private var colorDisp: Color = Color.white
     var body: some View {
         ZStack {
             colorDisp
                 .ignoresSafeArea()
             HStack {
-                ButtonRow(displayBckColor: .red, buttonBackgroundColor: .red, buttonColorName: "Red")
-                ButtonRow(displayBckColor: .green, buttonBackgroundColor: .green, buttonColorName: "Green")
-                ButtonRow(displayBckColor: .blue, buttonBackgroundColor: .blue, buttonColorName: "Blue")
+                
+                
+                ButtonRow(displayBckColor: $colorDisp, newBckColor: .red, buttonBackgroundColor: .red, buttonColorName: "Red")
+                ButtonRow(displayBckColor: $colorDisp, newBckColor: .green, buttonBackgroundColor: .green, buttonColorName: "Green")
+                ButtonRow(displayBckColor: $colorDisp, newBckColor: .blue, buttonBackgroundColor: .blue, buttonColorName: "Blue")
             }
         }
         
@@ -25,6 +27,6 @@ struct ButtonsView: View {
 
 struct ButtonsView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonsView(colorDisp: .purple)
+        ButtonsView()
     }
 }

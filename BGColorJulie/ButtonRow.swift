@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ButtonRow: View {
     
-    @Binding var displayBckColor: Color // = .yellow @Binding
+    @Binding var displayBckColor: Color // = Color.orange // = .yellow @Binding
+    var newBckColor: Color //  @Binding
     var buttonBackgroundColor: Color
     var buttonColorName: String
     
@@ -22,26 +23,24 @@ struct ButtonRow: View {
             displayBckColor
                 .ignoresSafeArea()
             Button {
-                // change backgroundColor
-                // displayBckColor
-                displayBckColor = .purple
+                displayBckColor = newBckColor // = self.displayBckColor //.purple
             } label: {
                 HStack {
                     Image(systemName: "eyedropper")
                     Text(buttonColorName)
-                        .foregroundColor(.white)
-                    
                 }
                 
-            }.buttonStyle(.borderedProminent) // correction .padding() marge en haut en bas et sur les côtés .background(Color.red) .cornerRadius(15)
-                .tint(buttonBackgroundColor)
-            //            .padding()
+            }
+            .padding()
+            .background(buttonBackgroundColor)
+            .foregroundColor(.white)
+            .cornerRadius(15)
         }
     }
 }
 
 struct ButtonRow_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonRow(displayBckColor: .constant(.green), buttonBackgroundColor: .yellow, buttonColorName: "Yellow") // .constant(.yellow)
+        ButtonRow(displayBckColor: .constant(.pink), newBckColor: .blue, buttonBackgroundColor: .yellow, buttonColorName: "Where is the food")
     }
 }
